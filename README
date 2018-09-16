@@ -1,0 +1,55 @@
+# Virtual Pet Project
+
+Overview:
+User initiated interaction with virtual entity. 
+	-Each interaction causes passage of time.
+	-Each interaction affects entity's Stats (see below).
+	-Entity can die if:
+		-life stat reaches 0 (loss)
+			-stats at 0 decrease life stat
+			-full happiness instantly creates (win)
+		-user interaction creates external death condition
+			-overfeeding: feeding when not hungry (loss)
+			-overexertion: playing when fully tired (loss)
+			-disease: 3 turns after gaining disease condition (loss)
+		-random critical fail roll (loss)
+	-User can quit by entering "Quit"
+	-Each interaction ends turn
+All stats updated each turn
+	-User must choose an interaction each turn or choose "Do Nothing" or "Quit"
+		-"Do Nothing" will end the turn without performing any action.
+Stats:
+	-Vital
+		-Life
+			-de facto "health bar"
+			-does not replenish
+			-decreases when any non-vital stat is at 0 to start a turn
+		-Happiness
+			-de facto "xp bar"
+			-increases by 1 when any non-vital stat
+			-increases by 2 when any non-vital stat is at 0 to start a turn
+			-decreases by 1 when any non-vital stat is at 5 to start
+			-increases by additional 1 when "favorite" option is selected for any activity category
+	-Non-Vital	
+		-Hunger
+			-starts at 2
+			-increases by 1 every turn
+			-"feed" activity options decrease by 1, 3, or 5
+		-Thirst
+			-starts at 1
+			-increases by 1 every turn
+			-"drink" activity options decrease by 1, 3, or 5 
+		-Waste
+			-starts at 1
+			-increases by 1 each turn
+			-random chance to "poop" which increases waste by 5
+			-"clean" activity reduces to 1
+		-Boredom
+			-starts at 3
+			-increases by 1 each turn
+			-"play" activity options decrease by 1, 3, or 5, or increase by 1
+		-Disease
+			-either is diseased or isn't
+			-can randomly catch disease
+			-can become diseased by eating waste if waste and hunger are both at 5
+

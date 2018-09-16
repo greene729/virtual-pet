@@ -43,20 +43,54 @@ public class VirtualPetUser {
 
 		} while (eggResponse);
 
-		VirtualPet newVirtualPet = new VirtualPet();
+		VirtualPet myVirtualPet = new VirtualPet();
 
 		System.out.println("Congratulations. It's a...thing.");
 		System.out.println();
-		System.out.println("What do you want to do?");
-		int activity = input.nextInt();
-		System.out.println("1 - Feed");
-		System.out.println("2 - Play");
-		System.out.println("3 - Give Drink");
-		System.out.println("4 - Go to the Doctor");
-		System.out.println("5 - Clean");
+
+		boolean userKeepsPlaying;
+		do {
+			System.out.println("~Stats~");
+			System.out.println("Life - " + myVirtualPet.life);
+			System.out.println("Hunger - " + myVirtualPet.hunger);
+			System.out.println("Thirst - " + myVirtualPet.thirst);
+			System.out.println("Waste - " + myVirtualPet.waste);
+			System.out.println("Diseased - " + myVirtualPet.disease);
+			System.out.println("");
+			System.out.println("What do you want to do?");
+			System.out.println("1 - Feed");
+			System.out.println("2 - Play");
+			System.out.println("3 - Give Drink");
+			System.out.println("4 - Go to the Doctor");
+			System.out.println("5 - Clean");
+			System.out.println("type \"Quit\" to quit");
+
+			String activity = input.next();
+
+			switch (activity.toLowerCase()) {
+			case "1":
+			case "feed":
+				System.out.println("Pick a food:");
+				System.out.println("1 - Some sort of fruit");
+				System.out.println("2 - A dish typically thought of as a side");
+				System.out.println("3 - Large quantity of meat");
+				int foodType = input.nextInt();
+				myVirtualPet.feed(foodType);
+				myVirtualPet.tick();
+				userKeepsPlaying = true;
+				break;
+			case "2":
+			case "play":
+				System.out.println();
+
+			}
+		} while (userKeepsPlaying = true);
+
+		// String[] foodTypeOne = {"Peach", "Apple", "Grapes"};
+		// String[] foodTypeTwo = {"Fries", "Salad", "Soup"};
+		// String[] foodTypeThree = {"Ham", "Steak", "Turkey"};
 
 		input.close();
-
 	}
 
 }

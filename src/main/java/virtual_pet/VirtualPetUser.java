@@ -56,6 +56,8 @@ public class VirtualPetUser {
 			System.out.println("Boredom - " + myVirtualPet.boredom);
 			System.out.println("Waste - " + myVirtualPet.waste);
 			System.out.println();
+			System.out.println("You have been taking care of...it for " + myVirtualPet.hours + " hours.");
+			System.out.println();
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Feed");
 			System.out.println("2 - Play");

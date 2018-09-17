@@ -2,12 +2,13 @@ package virtual_pet;
 
 public class VirtualPet {
 
-	int hunger = 2;
-	int thirst = 1;
-	int boredom = 3;
+	int hunger = 1;
+	int thirst = 0;
+	int boredom = 2;
 	int waste = 0;
 	int life = 10;
 	int damage;
+	int hours = 0;
 
 	public VirtualPet() {
 
@@ -21,6 +22,7 @@ public class VirtualPet {
 		collectDamage();
 		applyDamage();
 		damage = 0;
+		hours = hours + 1;
 
 	}
 
@@ -45,7 +47,7 @@ public class VirtualPet {
 			thirst = thirst - 2;
 			waste = waste + 1;
 		} else if (drinkType == 2) {
-			hunger = hunger - 1;
+			hunger = hunger - 2;
 			thirst = thirst - 4;
 			waste = waste + 2;
 		} else if (drinkType == 3) {
@@ -56,15 +58,15 @@ public class VirtualPet {
 
 	public void play(int playType) {
 		if (playType == 1) {
-			boredom = boredom - 1;
+			boredom = boredom - 2;
 		} else if (playType == 2) {
 			hunger = hunger + 1;
 			thirst = thirst + 1;
-			boredom = boredom - 3;
+			boredom = boredom - 4;
 		} else if (playType == 3) {
 			hunger = hunger + 2;
 			thirst = thirst + 2;
-			boredom = boredom - 5;
+			boredom = boredom - 6;
 		}
 	}
 

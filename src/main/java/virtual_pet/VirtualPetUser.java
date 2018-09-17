@@ -48,7 +48,6 @@ public class VirtualPetUser {
 		System.out.println("Congratulations. It's a...thing.");
 		System.out.println();
 
-		boolean userKeepsPlaying;
 		do {
 			System.out.println("~Stats~");
 			System.out.println("Life - " + myVirtualPet.life);
@@ -71,24 +70,37 @@ public class VirtualPetUser {
 			case "1":
 			case "feed":
 				System.out.println("Pick a food:");
-				System.out.println("1 - Some sort of fruit");
-				System.out.println("2 - A dish typically thought of as a side");
-				System.out.println("3 - Large quantity of meat");
+				System.out.println("1 - Some sort of fruit?");
+				System.out.println("2 - A salad or something. It's certainly leafy.");
+				System.out.println("3 - Large quantity of unidentifiable meat");
 				int foodType = input.nextInt();
 				myVirtualPet.feed(foodType);
-				myVirtualPet.tick();
-				userKeepsPlaying = true;
 				break;
 			case "2":
 			case "play":
-				System.out.println();
+				System.out.println("You play with the...um little guy?");
+				System.out.println("It seems to enjoy it.");
+				myVirtualPet.play();
+				break;
+			case "3":
+			case "give drink":
+				System.out.println("Pick a drink:");
+				System.out.println("1 - Good, old-fashioned, clearish water.");
+				System.out.println("2 - A warm liquid that smells vaguely of ham");
+				System.out.println("3 - Fancy schmancy electrolyte infused water.");
+				int drinkType = input.nextInt();
+				myVirtualPet.drink(drinkType);
+				break;
 
 			}
-		} while (userKeepsPlaying = true);
 
-		// String[] foodTypeOne = {"Peach", "Apple", "Grapes"};
-		// String[] foodTypeTwo = {"Fries", "Salad", "Soup"};
-		// String[] foodTypeThree = {"Ham", "Steak", "Turkey"};
+			myVirtualPet.tick();
+
+		} while (myVirtualPet.life > 0);
+		System.out.println("You have killed whatever it was.");
+		System.out.println("You are filled with a profound feeling of shame.");
+		System.out.println("The shame eventually eats away at you until you die.");
+		System.out.println("Sorry about your luck.");
 
 		input.close();
 	}

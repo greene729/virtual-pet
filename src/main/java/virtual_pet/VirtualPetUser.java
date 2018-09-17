@@ -62,6 +62,7 @@ public class VirtualPetUser {
 			System.out.println("3 - Give Drink");
 			System.out.println("4 - Go to the Doctor");
 			System.out.println("5 - Clean");
+			System.out.println("6 - Do Nothing");
 			System.out.println("type \"Quit\" to quit");
 
 			String activity = input.next();
@@ -78,9 +79,12 @@ public class VirtualPetUser {
 				break;
 			case "2":
 			case "play":
-				System.out.println("You play with the...um little guy?");
-				System.out.println("It seems to enjoy it.");
-				myVirtualPet.play();
+				System.out.println("Pick an activity:");
+				System.out.println("1 - Play a board game.");
+				System.out.println("2 - Take the...thing for a brisk walk");
+				System.out.println("3 - Sports? Do a sports or something?");
+				int playType = input.nextInt();
+				myVirtualPet.play(playType);
 				break;
 			case "3":
 			case "give drink":

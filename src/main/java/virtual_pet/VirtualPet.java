@@ -4,12 +4,10 @@ public class VirtualPet {
 
 	int hunger = 0;
 	int thirst = 0;
-	int waste = 0;
 	int boredom = 0;
+	int waste = 0;
 	int life = 10;
-	int happiness = 0;
 	int damage;
-	boolean disease = false;
 
 	public VirtualPet() {
 
@@ -18,10 +16,11 @@ public class VirtualPet {
 	public void tick() {
 		hunger = hunger + 1;
 		thirst = thirst + 1;
-		waste = waste + 1;
 		boredom = boredom + 1;
-		checkHunger();
-		takeDamage();
+		waste = waste + 1;
+		collectDamage();
+		applyDamage();
+		damage = 0;
 
 	}
 
@@ -68,23 +67,38 @@ public class VirtualPet {
 		}
 	}
 
-	public void play() {
-		hunger = +1;
-		thirst = +1;
-		boredom = -1;
-
-	}
-
-	public void takeDamage() {
-		life = life - damage;
-	}
-
-	public void checkHunger() {
-		if (hunger > 5) {
-			damage = damage + 1;
-		} else {
-			damage = damage + 0;
+	public void play(int playType) {
+		if (playType == 1) {
+			boredom = boredom - 1;
+		} else if (playType == 2) {
+			hunger = hunger + 1;
+			thirst = thirst + 1;
+			boredom = boredom - 3;
+		} else if (playType == 3) {
+			hunger = hunger + 2;
+			thirst = thirst + 2;
+			boredom = boredom - 5;
 		}
+
+	}
+
+	public void collectDamage() {
+		if (hunger >= 5) {
+			damage = damage + 1;
+		}
+		if (thirst >= 5) {
+			damage = damage + 1;
+		}
+		if (waste >= 5) {
+			damage = damage + 1;
+		}
+		if (boredom >= 5) {
+			damage = damage + 1;
+		}
+	}
+
+	public void applyDamage() {
+		life = life - damage;
 	}
 
 	public void checkThirst() {

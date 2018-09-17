@@ -53,16 +53,15 @@ public class VirtualPetUser {
 			System.out.println("Life - " + myVirtualPet.life);
 			System.out.println("Hunger - " + myVirtualPet.hunger);
 			System.out.println("Thirst - " + myVirtualPet.thirst);
+			System.out.println("Boredom - " + myVirtualPet.boredom);
 			System.out.println("Waste - " + myVirtualPet.waste);
-			System.out.println("Diseased - " + myVirtualPet.disease);
-			System.out.println("");
+			System.out.println();
 			System.out.println("What do you want to do?");
 			System.out.println("1 - Feed");
 			System.out.println("2 - Play");
 			System.out.println("3 - Give Drink");
-			System.out.println("4 - Go to the Doctor");
-			System.out.println("5 - Clean");
-			System.out.println("6 - Do Nothing");
+			System.out.println("4 - Clean");
+			System.out.println("5 - Do Nothing");
 			System.out.println("type \"Quit\" to quit");
 
 			String activity = input.next();
@@ -95,6 +94,33 @@ public class VirtualPetUser {
 				int drinkType = input.nextInt();
 				myVirtualPet.drink(drinkType);
 				break;
+			case "4":
+			case "clean":
+				System.out.println("You clean up after the whatever-it-is.");
+				System.out.println("Who knew this thing could make such a mess.");
+				System.out.println("The thing looks pretty bored.");
+				System.out.println("And a little peckish.");
+				System.out.println();
+				myVirtualPet.clean();
+				break;
+			case "5":
+			case "do nothing":
+				System.out.println("You do nothing.");
+				System.out.println("Unsurprisingly, nothing happens.");
+				System.out.println();
+				break;
+			case "quit":
+				System.out.println("Are you sure you want to quit?");
+				String quitResponse = input.nextLine();
+				if (quitResponse.toLowerCase().equals("yes")) {
+					System.out.println("Oh. Well alright then.");
+					System.out.println("I'll kill this thing for you.");
+					System.out.println();
+					myVirtualPet.life = 0;
+				} else if (quitResponse.toLowerCase().equals("no")) {
+					System.out.println("Alright then. Let's get on with it.");
+					System.out.println("This counts as a turn though.");
+				}
 
 			}
 
